@@ -9,7 +9,7 @@ using UnityEngine.Networking;
 using Newtonsoft.Json;
 
 public class tpScoreSaver : MonoBehaviour {
-   
+
     class jsonClass
     {
         public List<Player> Players { get; set; }
@@ -45,7 +45,11 @@ public class tpScoreSaver : MonoBehaviour {
         foreach (var Player in XDocument.Parse(String.Join("", File.ReadAllLines(xmlPath))).Root.Elements("LeaderboardEntry"))
         {
             var player = new Player();
-            Func<string, string> find = (n) => Player.Element(n).Value;
+            Func<string, string> find = (n) =>
+            {
+                var element = Player.Element(n);
+                return element == null ? null : element.Value;
+            };
             player.UserName = find("UserName");
             var colors = Player.Element("UserColor");
             player.UserColor = new Dictionary<string, int>()
@@ -60,6 +64,8 @@ public class tpScoreSaver : MonoBehaviour {
             player.Rank = find("Rank");
             player.TotalSoloClears = find("TotalSoloClears");
             player.SoloRank = find("SoloRank");
+            var oo = find("OptOut");
+            player.OptedOut = oo == "true" ? true : false;
             toSerialize.Players.Add(player);
         }
         string Serialized = JsonConvert.SerializeObject(toSerialize, Formatting.None);

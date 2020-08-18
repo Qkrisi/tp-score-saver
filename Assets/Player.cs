@@ -10,4 +10,5 @@ public class Player
     public string Rank { get; set; }
     public string TotalSoloClears { get; set; }
     public string SoloRank { get; set; }
+    public bool OptedOut { get; set; }
 }
