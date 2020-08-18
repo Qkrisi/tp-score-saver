@@ -19,7 +19,7 @@ public class tpScoreSaver : MonoBehaviour {
 
     void Start()
     {
-        xmlPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "..\\LocalLow\\Steel Crate Games\\Keep Talking and Nobody Explodes\\TwitchPlaysUsers.xml");
+        xmlPath = Path.Combine(Application.persistentDataPath, "TwitchPlaysUsers.xml");
         GetComponent<KMGameInfo>().OnStateChange += (state) =>
         {
             if (state == KMGameInfo.State.Quitting || state == KMGameInfo.State.Setup) StartCoroutine(Poster());
