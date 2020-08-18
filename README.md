@@ -11,5 +11,3 @@ In `Assets\tpData.cs`, you'll find the information you need to modify based on y
 | IP | Address of the server - IP:Port |
 | Name | Name of the streamer |
 | pwd | Security password name  (`tpServerPass` in `config.json`)|
-
-**The mod only works on Windows so far!**
