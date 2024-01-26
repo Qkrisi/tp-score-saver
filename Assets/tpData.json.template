@@ -1,0 +1,12 @@
+{
+	"IP": "URL",
+	"Name": "StreamerName",
+	"pwd": "StatsServerPassword",
+	"datas": [
+		"SolveCount",
+		"StrikeCount",
+		"SolveScore",
+		"Rank",
+		"TotalSoloClears"
+	]
+}

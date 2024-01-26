@@ -16,9 +16,14 @@ public class tpScoreSaver : MonoBehaviour {
     }
 
     string xmlPath;
+    
+    private tpData Data;
+    
+    [SerializeField] private TextAsset DataText;
 
     void Start()
     {
+        Data = JsonConvert.DeserializeObject<tpData>(DataText.text);
         xmlPath = Path.Combine(Application.persistentDataPath, "TwitchPlaysUsers.xml");
         GetComponent<KMGameInfo>().OnStateChange += (state) =>
         {
@@ -69,7 +74,7 @@ public class tpScoreSaver : MonoBehaviour {
             toSerialize.Players.Add(player);
         }
         string Serialized = JsonConvert.SerializeObject(toSerialize, Formatting.None);
-        yield return Post(String.Format("http://{0}/setReq/{1}/{2}",tpData.IP, tpData.pwd, tpData.Name), Serialized);
+        yield return Post(String.Format("{0}/setReq/{1}/{2}",Data.IP, Data.pwd, Data.Name), Serialized);
     }
 
     IEnumerator Post(string url, string bodyJsonString)

@@ -29,5 +29,7 @@ sysinfo.txt
 *.csproj
 /Assets/Generated.meta
 Assets/Generated
+Assets/tpData.json
+Assets/tpData.json.meta
 Gen
 

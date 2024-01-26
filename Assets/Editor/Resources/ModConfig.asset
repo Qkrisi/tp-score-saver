@@ -14,7 +14,7 @@ MonoBehaviour:
   id: tpScoreSaver
   title: TP Score Saver
   author: Qkrisi
-  description: Sends the tp scores to the KTaNE Bot server
-  version: 1.0
+  description: Sends the tp scores to the KTaNE Bot server.
+  version: 1.1.1
   outputFolder: build
-  previewImage: {fileID: 0}
+  previewImage: {fileID: 2800000, guid: ed8c03588dd514796aedd12b725a6c9b, type: 3}
